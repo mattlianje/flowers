@@ -5,22 +5,29 @@ ThisBuild / version          := "0.1.0-SNAPSHOT"
 ThisBuild / organization     := "com.example"
 ThisBuild / organizationName := "example"
 
+// run := run in Compile in core
+val monocleVersion = "2.0.0" // depends on cats 2.x
+
+//resolvers += Resolver.sonatypeRepo("releases")
+//addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
+
 lazy val root = (project in file("."))
   .settings(
     name := "lorenz",
     libraryDependencies += scalaTest % Test,
+    resolvers += Resolver.sonatypeRepo("releases"),
+    addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full),
     scalacOptions += "-Ypartial-unification",
     libraryDependencies += "org.typelevel" %% "cats-core" % "2.0.0",
-    libraryDependencies += "com.dragishak" %% "monocle-cats" % "1.3"
+    libraryDependencies += "com.dragishak" %% "monocle-cats" % "1.3",
+      libraryDependencies ++= Seq(
+          "com.github.julien-truffaut" %%  "monocle-core"  % monocleVersion,
+          "com.github.julien-truffaut" %%  "monocle-macro" % monocleVersion,
+          "com.github.julien-truffaut" %%  "monocle-law"   % monocleVersion % "test")
   )
 
-val monocleVersion = "2.0.0" // depends on cats 2.x
+// lazy val core = (project in file("core")) dependsOn root
 
-libraryDependencies ++= Seq(
-    "com.github.julien-truffaut" %%  "monocle-core"  % monocleVersion,
-    "com.github.julien-truffaut" %%  "monocle-macro" % monocleVersion,
-    "com.github.julien-truffaut" %%  "monocle-law"   % monocleVersion % "test"
-)
 // Uncomment the following for publishing to Sonatype.
 // See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for more detail.
 
