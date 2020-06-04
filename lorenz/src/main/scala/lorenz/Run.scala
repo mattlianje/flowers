@@ -6,6 +6,9 @@ import monocle.macros.Lenses
 
 object Main extends App {
   println("test")
+
+  val test = Baudot.XOR("10010", "00001", 0)
+
   // Example case classes ...
   @Lenses case class Address(street: String, city: String, zip: Int)
   @Lenses case class Person(name: String, age:Int, address: Address)
@@ -19,8 +22,6 @@ object Main extends App {
   } yield (newStreetName, newAge)
 
   val person = Person("Alice", 30, Address("1 Main St", "San Francisco", 94123))
-
   val (changedPerson, (newStreet, newAge)) = state.run(person).value
-
   println(changedPerson.age)
 }
