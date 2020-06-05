@@ -1,7 +1,11 @@
 package lorenz
+import cats.instances.all._
+import monocle.macros.Lenses
+import cats.monocle.syntax._
+import cats.instances.all._
 import scala.util.Random
 
-case class Wheel(
+ @Lenses case class Wheel(
                 // pin_settings: Indices of which pins are flipped on the wheel to register as a binary '1'.
                 pin_settings: List[Int],
                 // wheel_type: As per Bill Tutte's nomenclature, you had χ, ψ, and μ wheels - to be implemented as chi, psi and mu.
@@ -21,6 +25,26 @@ case class Wheel(
     }
     else {
       getRandomPins(numPins, newList)
+    }
+  }
+
+  def getValue: Int = {
+    pin_settings(this.position)
+  }
+
+  def turnWheel: Wheel = {
+    // Return to position 0 if turning on the final position.
+    if (this.position + 1 == number_of_pins) {
+      this.copy(position = 0)
+    }
+    else {
+      val incrementPosition = Wheel.position += 1
+      val turnedState = for {
+        newPosition <- incrementPosition
+      } yield (newPosition)
+
+      val (turnedWheel, (newPos)) = turnedState.run(this).value
+      turnedWheel
     }
   }
 }
