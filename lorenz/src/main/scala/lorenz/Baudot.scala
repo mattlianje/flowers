@@ -4,6 +4,7 @@ package lorenz
 // https://cs.stanford.edu/people/eroberts/courses/soco/projects/2008-09/colossus/baudot.html
 
 object Baudot {
+
   val baudot_map = Map("00000" -> List("Blank", "Blank"),
   "00001" -> List("T", "5"),
   "00010" -> List("CR", "CR"),
@@ -37,22 +38,24 @@ object Baudot {
   "11110" -> List("K", "("),
   "11111" -> List("Letter Shift", ""))
 
-  def getChar(binary: String, mode: Int): String = {
+  def getChar (binary: String, mode: Int): String = {
     if (mode == 0) {
-      val value = baudot_map.get(binary).toList.head.toString()
-      value
+      baudot_map.get(binary).toList.head.toString()
     }
     else {
-      val value = baudot_map.get(binary).toList(1).toString()
-      value
+      baudot_map.get(binary).toList(1).toString()
     }
   }
 
-  def XOR(x: String, y: String, mode: Int): String = {
+  def XOR (x: String, y: String, mode: Int): String = {
     val xInt = x.toInt
     val yInt = y.toInt
     val performXOR = xInt ^ yInt
-    println(performXOR)
-    baudot_map.get(performXOR.toString).toList(mode).toString()
+    baudot_map.get(performXOR.toString).toList(mode).toString
+  }
+
+  def charToBaudot (c: String): String = {
+    val default = (-1, "")
+    baudot_map.find(_._2.contains(c)).getOrElse(default)._1.toString
   }
 }
