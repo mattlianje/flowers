@@ -1,4 +1,5 @@
 package lorenz
+import scala.annotation.tailrec
 
 // Using European Continental Baudot:
 // https://cs.stanford.edu/people/eroberts/courses/soco/projects/2008-09/colossus/baudot.html
@@ -47,11 +48,25 @@ object Baudot {
     }
   }
 
-  def XOR (x: String, y: String, mode: Int): String = {
-    val xInt = x.toInt
-    val yInt = y.toInt
-    val performXOR = xInt ^ yInt
-    baudot_map.get(performXOR.toString).toList(mode).toString
+  @tailrec
+  def XOR (x: String, y: String, mode: Int, curr: String): String = {
+    if (curr.length == x.length) {
+      if (mode == 0) {
+        baudot_map.get(curr).head.head
+      }
+      else {
+        baudot_map.get(curr).head(1)
+      }
+    }
+    else {
+      if ((x.charAt(curr.length) == '1' && y.charAt(curr.length) == '0') ||
+        (x.charAt(curr.length) == '0' && y.charAt(curr.length) == '1')) {
+        XOR(x, y, mode, curr.concat("1"))
+      }
+      else{
+        XOR(x, y, mode, curr.concat("0"))
+      }
+    }
   }
 
   def charToBaudot (c: String): String = {

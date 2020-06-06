@@ -55,73 +55,73 @@ import scala.util.Random
 object Wheels {
   def chi_I (p: Int) = Wheel(
     pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1),
-    wheel_type = "chi_I",
+    wheel_type = "χ_I",
     number_of_pins = 41,
     position = p
   )
   def chi_II (p: Int) = Wheel(
     pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1),
-    wheel_type = "chi_II",
+    wheel_type = "χ_II",
     number_of_pins = 31,
     position = p
   )
   def chi_III (p: Int) = Wheel(
-    pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0),
-    wheel_type = "chi_III",
+    pin_settings = List(0,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0),
+    wheel_type = "χ_III",
     number_of_pins = 29,
     position = p
   )
   def chi_IV (p: Int) = Wheel(
     pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1),
-    wheel_type = "chi_IV",
+    wheel_type = "χ_IV",
     number_of_pins = 26,
     position = p
   )
   def chi_V (p: Int) = Wheel(
-    pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1),
-    wheel_type = "chi_V",
+    pin_settings = List(0,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1),
+    wheel_type = "χ_V",
     number_of_pins = 23,
     position = p
   )
   def psi_I (p: Int) = Wheel(
     pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1),
-    wheel_type = "psi_I",
+    wheel_type = "ψ_I",
     number_of_pins = 43,
     position = p
   )
   def psi_II (p: Int) = Wheel(
     pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0),
-    wheel_type = "psi_II",
+    wheel_type = "ψ_II",
     number_of_pins = 47,
     position = p
   )
   def psi_III (p: Int) = Wheel(
     pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,1),
-    wheel_type = "psi_III",
+    wheel_type = "ψ_III",
     number_of_pins = 51,
     position = p
   )
   def psi_IV (p: Int) = Wheel(
-    pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,1,0,0),
-    wheel_type = "psi_IV",
+    pin_settings = List(0,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,1,0,0),
+    wheel_type = "ψ_IV",
     number_of_pins = 53,
     position = p
   )
   def psi_V (p: Int) = Wheel(
     pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1),
-    wheel_type = "psi_V",
+    wheel_type = "ψ_V",
     number_of_pins = 59,
     position = p
   )
   def mu_I (p: Int) = Wheel(
-    pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0),
-    wheel_type = "mu_I",
+    pin_settings = List(1,0,0,0,1,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0),
+    wheel_type = "μ_I",
     number_of_pins = 61,
     position = p
   )
   def mu_II (p: Int) = Wheel(
     pin_settings = List(1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0),
-    wheel_type = "mu_II",
+    wheel_type = "μ_II",
     number_of_pins = 37,
     position = p
   )
