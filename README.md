@@ -6,7 +6,7 @@
 </p>
 <p align="center">
   <img width="250" src="data/tommy-flowers.jpeg">
-  <p align="center"><i style="font-size:small;">Thomas Harold Flowers MBE (1905-1998)</i></p>
+  <p align="center"><i style="font-size:x-small;">Thomas Harold Flowers, MBE (1905 – 1998)</i></p>
 </p>
 
 ### Machines supported
