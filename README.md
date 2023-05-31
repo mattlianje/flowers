@@ -1,11 +1,22 @@
-# Lorenz
+<h1 align="center">🌸flowers</h1>
+<p align="center">
+</p>
+<p align="center">A library for Pure-FP, thread-safe access to WW2 era cipher machines. Named after the great Tommy Flowers</p>
+<p align="center">
+  <img width="325" src="data/tommy-flowers.jpeg">
+</p>
+<p align="center">
+... 
+</p>
 
-Functional implementation of the SZ-40/42 [Lorenz](https://en.wikipedia.org/wiki/Lorenz_cipher) machine using optics and [Monocle Lenses](https://github.com/optics-dev/Monocle). Video explanation [here](https://www.youtube.com/watch?v=LEGLvsqTYtc).
+# Machines supported
+```
+Germany
+    |_________ (Rotor-Stream)          →  Lorenz sZ-40/42      
+    |_________ (Rotor-Substitution)    →  Enigma (M3)      
 
+```
 <p align="center">
   <img width="325" src="data/lorenz.jpg">
 </p>
 
-<p align="center">
-  <img width="700" src="data/demo.gif">
-</p>
