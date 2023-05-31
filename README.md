@@ -9,7 +9,7 @@
 ... 
 </p>
 
-# Machines supported
+### Machines supported
 ```
 Germany
     |_________ (Rotor-Stream)          →  Lorenz sZ-40/42      
