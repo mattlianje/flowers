@@ -6,6 +6,8 @@
 </p>
 <p align="center">
   <img width="250" src="data/tommy-flowers.jpeg">
+  <p align="center"><i style="font-size:small;">Thomas Harold Flowers MBE (1905-1998) was an English engineer with the British General Post Office. 
+    During World War II, Flowers designed and built Colossus, the world's first programmable electronic computer, to help decipher encrypted German messages.</i></p>
 </p>
 
 ### Machines supported
