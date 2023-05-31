@@ -5,9 +5,6 @@
 <p align="center">
   <img width="250" src="data/tommy-flowers.jpeg">
 </p>
-<p align="center">
-... 
-</p>
 
 ### Machines supported
 ```
