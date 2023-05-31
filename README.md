@@ -3,7 +3,7 @@
 </p>
 <p align="center">A library for Pure-FP, thread-safe access to WW2 era cipher machines. Named after the great Tommy Flowers</p>
 <p align="center">
-  <img width="325" src="data/tommy-flowers.jpeg">
+  <img width="250" src="data/tommy-flowers.jpeg">
 </p>
 <p align="center">
 ... 
