@@ -1,8 +1,8 @@
-package lorenz
+package commons
 
 object Baudot {
   val baudotMap: Map[String, List[String]] = Map(
-    "00000" -> List("Blank", "Blank"),
+    "00000" -> List(" ", "Blank"),
     "00001" -> List("T", "5"),
     "00010" -> List("CR", "CR"),
     "00011" -> List("O", "9"),
@@ -45,7 +45,7 @@ object Baudot {
   }
 
   def getBits(character: String): Option[String] = {
-    inverseBaudotMap.get(character)
+    inverseBaudotMap.get(character.toUpperCase)
   }
 
   def bitwiseXOR(s1: String, s2: String): String = {
