@@ -4,7 +4,7 @@ ThisBuild / scalaVersion := "2.13.10"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "flowers-2"
+    name := "flowers"
   )
 
 val zio_version = "2.0.13"

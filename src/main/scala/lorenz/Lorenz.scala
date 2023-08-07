@@ -1,94 +1,130 @@
 package lorenz
-import lorenz.Baudot.{bitwiseXOR, getBits, getCharacter}
+import commons.Baudot.{bitwiseXOR, getBits, getCharacter}
 import zio._
 
 object Lorenz {
 
+  private val CHI_PINS: List[Int] =
+    List(41, 31, 29, 26, 23) // χ1, χ2, χ3, χ4, χ5
+  private val PSI_PINS: List[Int] =
+    List(43, 47, 51, 53, 59) // ψ1, ψ2, ψ3, ψ4, ψ5
+  private val MU_PINS: List[Int] = List(37, 61) // μ1, μ2
+
   case class Wheel(pins: List[Int], pos: Int) {
     def rotate: Wheel = copy(pos = (pos + 1) % pins.size)
+
     def bit: Int = pins(pos)
+  }
+
+  object Wheel {
+    def loadDefaultWheel(pins: Int): Wheel = {
+      Wheel((0 until pins).toList.map(_ % 2), 0)
+    }
   }
 
   case class LorenzState(
       mu1: Wheel,
       mu2: Wheel,
       chi: List[Wheel],
-      psi: List[Wheel],
-      impulse: Int
+      psi: List[Wheel]
   ) {
     def rotateMu1: LorenzState = copy(mu1 = mu1.rotate)
-    def rotateMu2: LorenzState =
-      if (mu1.bit == 1) copy(mu2 = mu2.rotate) else this
+
+    def rotateMu2: LorenzState = copy(mu2 = mu1.bit match {
+      case 1 => mu2.rotate
+      case _ => mu2
+    })
+
     def rotateChi: LorenzState = copy(chi = chi.map(_.rotate))
-    def rotatePsi: LorenzState =
-      if (mu1.bit != mu2.bit) copy(psi = psi.map(_.rotate)) else this
-    def incrementImpulse: LorenzState = copy(impulse = impulse + 1)
+
+    def rotatePsi: LorenzState = copy(psi = (mu1.bit, mu2.bit) match {
+      case (a, b) if a != b => psi.map(_.rotate)
+      case _                => psi
+    })
+
+    def updateState(): LorenzState = {
+      rotateMu1.rotateChi.rotateMu2.rotatePsi
+    }
   }
 
-  /** At each key press ...
-    * https://cs.stanford.edu/people/eroberts/courses/soco/projects/2008-09/colossus/lorenzmachine.html
-    *      1. μ1 and χ wheels turn.
-    *      2. μ2 turns iff μ1 has a value of 1.
-    *      3. If μ1 ⊕ μ2 is 1 then all ψ wheels are turned, if not they don't.
+  /** Lorenz Machine action upon each key press
+    *
+    * 1. μ1 ∧ χ wheels turn
+    * 2. μ2 turns ↔ μ1 == 1
+    * 3. μ1 ⊕ μ2 == 1 → all ψ wheels are turned
+    *    ~(μ1 ⊕ μ2 == 1) → ψ wheels don't turn
     */
 
-  object LorenzMachine {
-    def createMachineState: UIO[Ref[LorenzState]] = {
-      val chiWheels = List(41, 31, 29, 26, 23).map(pins =>
-        Wheel((0 until pins).toList.map(i => i % 2), 0)
-      )
-      val psiWheels = List(43, 47, 51, 53, 59).map(pins =>
-        Wheel((0 until pins).toList.map(i => i % 2), 0)
-      )
-      val muWheels = List(37, 61).map(pins =>
-        Wheel((0 until pins).toList.map(i => i % 2), 0)
-      )
-
-      Ref.make(
-        LorenzState(
-          mu1 = muWheels.head,
-          mu2 = muWheels(1),
-          chi = chiWheels,
-          psi = psiWheels,
-          impulse = 0
-        )
-      )
-    }
-
-    def encipher(stateRef: Ref[LorenzState], input: String): UIO[String] = {
+  class LorenzMachine private (private val stateRef: Ref[LorenzState]) {
+    def encipher(input: String): UIO[String] = {
       input.toList.foldLeft(ZIO.succeed("")) { (prev, char) =>
         for {
           state <- stateRef.get
-          inputBits = getBits(char.toString)
-          chi = state.chi.map(_.bit).mkString
-          psi =
-            if (state.mu1.bit == 1 && state.mu2.bit == 1)
-              state.psi.map(_.bit).mkString
-            else "0" * 5
-          xorBits = bitwiseXOR(chi, psi)
-          encipheredBits = bitwiseXOR(inputBits.getOrElse("00000"), xorBits)
-          encipheredChar = getCharacter(encipheredBits).getOrElse(" ")
-          _ <- stateRef.update(_.rotateMu1.rotateChi.incrementImpulse)
-          _ <- stateRef.update(_.rotateMu2)
-          _ <- stateRef.update(_.rotatePsi)
+          inputBits: Option[String] = getBits(char.toString)
+          chi: String = state.chi.map(_.bit).mkString
+          psi: String = state.psi.map(_.bit).mkString
+          xorBits: String = bitwiseXOR(chi, psi)
+          encipheredBits: String = bitwiseXOR(
+            inputBits.getOrElse(""),
+            xorBits
+          )
+          encipheredChar: String = getCharacter(encipheredBits).getOrElse("")
+          _ <- stateRef.update(_.updateState())
           result <- prev.map(_ + encipheredChar)
         } yield result
       }
     }
   }
 
-  def main(args: Array[String]): Unit = {
-    val runtime = Runtime.default
+  object LorenzMachine {
 
-    val program = for {
-      stateRef <- LorenzMachine.createMachineState
-      encipheredMessage <- LorenzMachine.encipher(stateRef, "HELLO")
-    } yield encipheredMessage
+    def createMachine(
+        chiWheelsOpt: Option[List[Wheel]] = None,
+        psiWheelsOpt: Option[List[Wheel]] = None,
+        muWheelsOpt: Option[List[Wheel]] = None
+    ): UIO[Either[String, LorenzMachine]] = {
 
-    Unsafe.unsafe {
-      implicit u =>
-        val result = runtime.unsafe.run(program)
-        println(result)
+      val createWheel
+          : (Option[List[Wheel]], List[Int]) => Either[String, List[Wheel]] =
+        (userWheelsOpt, defaultPins) =>
+          userWheelsOpt match {
+            case Some(userWheels) =>
+              if (
+                userWheels.length == defaultPins.length &&
+                userWheels.zip(defaultPins).forall { case (wheel, pinCount) =>
+                  wheel.pins.length == pinCount
+                }
+              )
+                Right(userWheels)
+              else
+                Left("Incorrect wheel configuration provided.")
+            case None =>
+              Right(defaultPins.map(Wheel.loadDefaultWheel))
+          }
+
+      val chiWheels = createWheel(chiWheelsOpt, CHI_PINS)
+      val psiWheels = createWheel(psiWheelsOpt, PSI_PINS)
+      val muWheels = createWheel(muWheelsOpt, MU_PINS)
+
+      (chiWheels, psiWheels, muWheels) match {
+        case (Right(chi), Right(psi), Right(mu)) =>
+          Ref
+            .make(
+              LorenzState(
+                mu1 = mu.head,
+                mu2 = mu.last,
+                chi = chi,
+                psi = psi
+              )
+            )
+            .map(ref => Right(new LorenzMachine(ref)))
+        case _ =>
+          ZIO.succeed(
+            Left(
+              "Failed to create machine state due to incorrect wheel configuration."
+            )
+          )
+      }
     }
   }
 }
