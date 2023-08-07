@@ -1,5 +1,5 @@
 # Lorenz Sz-40/42
-<img width="325" src="data/lorenz.jpg">
+<img width="250" src="data/lorenz.jpg">
 
 An implementation of the Lorenz Sz-40/42 cipher machine that was used by German high command during WW2. 
 This library was mainly created to understand the abstractions offered by the ZIO framework. 
@@ -7,7 +7,6 @@ This library was mainly created to understand the abstractions offered by the ZI
 ## Example
 ```scala
 import zio.{Runtime, ZIO}
-
 object MyApplication extends App {
 
   val myRuntime = Runtime.default
