@@ -10,18 +10,21 @@ and build data platforms.
 import lorenz.LorenzMachine
 
 val machine = LorenzMachine.createMachine().getOrElse(throw new Exception("Failed to create machine"))
-val cipherText = machine.encipherText(s
-"""
+val cipherText = machine.encipherText(
+  """
   | To OKH OP ABT and to OKH Foreign Armies East from Army Group South IA 01 No 411/43,
   | signed von Weich, General Feldsmarchall,
   | dated 25/4:
   | Comprehensive appreciation of the enemy for Zitadelle
-""".stripMargin)
+  """.stripMargin
+)
 
 println(cipherText)
+```
 
->>>
-"""
+**Output:**
+
+```
 AW7('70.8592$.2 751*"!"*)4-65
 2)1')7238!-,88!?/!YYO I
   GUSYUIYZX LRR BBFSCAHHFISJTDIVHCD4;)&)TOXGFW
@@ -32,11 +35,6 @@ V DSKUW_YZZXSUID8/8:84;01"0' 0.36?;3
 -";?-?: 09WF5?96/895.8203*80"6-(, 3'8:8,':28:$$5(;/)_/2;AJK8?.2 24.8&1
 !&6('
 :6)!*"4183*2'N V R,95)9(/6;!1.,&4054(95?.D
-FJ
-
-W_
-PBE8*:7PATSGSJAQABQGSKYM
-"""
 ```
 
 ## Why de-𝝌 attacks?
