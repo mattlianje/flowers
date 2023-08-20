@@ -50,5 +50,5 @@ bad habits of teleprinter operators repeating `FigureShifts` and `LetterShifts` 
 
 The consequence of 1-4 for a given cipher-text `Z`: 
 
-`𝛥z1 ⊕ 𝛥z2 ⊕ 𝛥𝝌1 ⊕ 𝛥𝝌2` has ~50% `0`'s if the starting positions of 𝝌1 and 𝝌2 are incorrect
+𝛥z1 ⊕ 𝛥z2 ⊕ 𝛥𝝌1 ⊕ 𝛥𝝌2 has ~50% `0`'s if the starting positions of 𝝌1 and 𝝌2 are incorrect
 and ~53% `0`s if they are correct and the cipher-text is longer than ~4000 characters.
