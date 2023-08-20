@@ -43,11 +43,13 @@ W_
 When 𝝌1 and 𝝌2 are in there correct starting positions and the pin settings 
 have already been broken with some flaviour of Turingismus the "de-𝝌" exploits:
 
-1) The properties of bitwise XOR: ∀ 5 bit 𝛼 and 𝛼' <=>  𝛼 = 𝛼' = 10010 <=>  𝛼 ⊕ 𝛼' = 00000
-2) The property of Lorenz where all 𝜓 wheels rotated in unison by increment 1 if at all
-3) The corollary of 2) being that more often than not 𝛥𝜓 = 0 where 𝛥s = s ⊕ s^ (where ^ indicated the succeeding character)
+1) The properties of bitwise XOR: 
+- ∀ 5 bit 𝛼 and 𝛼' <=>  𝛼 = 𝛼' = 10010 <=>  𝛼 ⊕ 𝛼' = 00000
+2) The property of Lorenz where all 𝜓 wheels rotated in unison by increment `1` if at all
+3) The corollary of 2) wherein more than `50%` of the time:
+- 𝛥𝜓 = 0 where 𝛥s = s ⊕ s^ (^ = succeeding character)
 4) The properties of the German language with frequent double graphemes (`ff`, `ss`, `zz`) and the
-bad habits of teleprinter operators repeating FigureShifts and LetterShifts and Spaces.
+bad habits of teleprinter operators repeating `FigureShifts` and `LetterShifts` and `Spaces`
 
 The consequence of 1-4 for a given cipher-text `Z`: 
 
