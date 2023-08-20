@@ -49,10 +49,9 @@ have already been broken with some flaviour of Turingismus the "de-𝝌" exploit
 bad habits of teleprinter operators repeating `FigureShifts` and `LetterShifts` and `Spaces`
 
 The consequence of 1-4 for a given cipher-text `Z`: 
-```
-z(i)=ith cipher letter of Z
 
-de-𝝌 = 𝛥z1 ⊕ 𝛥z2 ⊕ 𝛥𝝌1 ⊕ 𝛥𝝌2, ∀ z(i)∈Z 
-```
+- z(i)=ith cipher letter of Z
+- de-𝝌 = 𝛥z1 ⊕ 𝛥z2 ⊕ 𝛥𝝌1 ⊕ 𝛥𝝌2, ∀ z(i)∈Z
+
 de-𝝌 has ~50% `0`'s if the starting positions of 𝝌1 and 𝝌2 are incorrect
 and ~53% `0`s if they are correct and the cipher-text is longer than ~4000 characters.
