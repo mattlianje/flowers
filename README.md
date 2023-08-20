@@ -9,20 +9,28 @@ and build data platforms.
 ```scala
 import lorenz.LorenzMachine
 
-val machine = LorenzMachine.createMachine().getOrElse(throw new Exception("Failed to create machine"))
-val cipherText = machine.encipherText(
+val inputText = 
   """
   | To OKH OP ABT and to OKH Foreign Armies East from Army Group South IA 01 No 411/43,
-  | signed von Weich, General Feldsmarchall,
-  | dated 25/4:
+  | signed von Weich, General Feldsmarchall, dated 25/4:
   | Comprehensive appreciation of the enemy for Zitadelle
+  | In the main the appreciation of the enemy remains the same as reported in Army Group South IIA, No. 0477/43
+  | of 29/3and in the supplementary appreciation of 15/4 The main concentration, which was already then apparent
+  | on the north flank of the Army Group in the general area Kursk-Ssudsha-Volchansk-Ostrogoshk,
+  | can now be clearly recognized
   """.stripMargin
-)
 
-println(cipherText)
+val result = for {
+  machine <- LorenzMachine.createMachine()
+  cipherText <- machine.encipherText(inputText)
+} yield cipherText
+
+result match {
+  case Right(text) => println(text)
+  case Left(error) => println(s"Error encountered: $error")
+}
 ```
-
-**Output:**
+**Output (if successful, look at Murray Baudot supported characters first):**
 
 ```
 AW7('70.8592$.2 751*"!"*)4-65
