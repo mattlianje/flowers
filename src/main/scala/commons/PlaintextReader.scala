@@ -15,6 +15,7 @@ object PlaintextReader {
     val source =
       scala.io.Source.fromInputStream(getClass.getResourceAsStream(fileName))
     try {
+      // Not strictly needed, but for now we are ingesting the plaintext without carriage returns etc ...
       source.mkString.replaceAll("\r\n|\n|\r", "")
     } finally {
       source.close()

@@ -5,7 +5,7 @@ package lorenz
   *
   * @param pins: List[Int], ∀ n ∈ {0,1} representing raised or lowered pins
   *              starting with position 0.
-  * @param pos; Int, Current position of wheel relative to 0.
+  * @param pos: Int, Current position of wheel relative to 0.
   */
 case class Wheel(pins: List[Int], pos: Int) {
   require(
