@@ -61,29 +61,6 @@ object Baudot {
     }
   }
 
-  def bitwiseXOR2(bitstrings: BitString*): Option[BitString] = {
-    // Ensure at least one string is provided
-    if (bitstrings.isEmpty) return None
-    // Ensure all strings are of the same length
-    if (bitstrings.map(_.length).distinct.size != 1) return None
-    // Ensure all strings contain only bits
-    if (!bitstrings.forall(bs => bs.forall(c => c == '0' || c == '1')))
-      return None
-
-    // Start with the first string
-    val initial = bitstrings.head
-
-    // Fold over the rest of the bitstrings, XORing each one with the accumulated result
-    Some(bitstrings.tail.foldLeft(initial) { (acc, bs) =>
-      acc
-        .lazyZip(bs)
-        .map { case (c1, c2) =>
-          if (c1 == c2) '0' else '1'
-        }
-        .mkString
-    })
-  }
-
   def getCharacter(
       bits: BitString,
       mode: ShiftMode.Value
