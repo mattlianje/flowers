@@ -21,6 +21,7 @@ val cipherText = machine.encipherText(s
 println(cipherText)
 
 >>>
+"""
 AW7('70.8592$.2 751*"!"*)4-65
 2)1')7238!-,88!?/!YYO I
   GUSYUIYZX LRR BBFSCAHHFISJTDIVHCD4;)&)TOXGFW
@@ -35,7 +36,7 @@ FJ
 
 W_
 PBE8*:7PATSGSJAQABQGSKYM
->>>
+"""
 ```
 
 ## Why de-𝝌 attacks?
