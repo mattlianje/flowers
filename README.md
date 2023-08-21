@@ -1,10 +1,9 @@
 # Lorenz Sz-40/42
 <img width="250" src="data/lorenz.jpg">
 
-Pure-fp Lorenz Sz-40/42 cipher machine that was used by German OKH/W during WW2.
-
-I mainly created this repo to learn about JVM concurrency while parallelizing "de-𝝌" attacks 
-and build modern data platforms.
+Pure-fp Lorenz Sz-40/42 cipher machine that was used by German OKH/W during WW2.I mainly created this repo to:
+- Learn about JVM concurrency while parallelizing "de-𝝌" attacks 
+- Keep my personal templates for modern data platforms
 
 ## Usage
 ```scala
