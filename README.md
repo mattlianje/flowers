@@ -48,7 +48,7 @@ V DSKUW_YZZXSUID8/8:84;01"0' 0.36?;3
 ## Why de-𝝌 attacks?
 
 When 𝝌1 and 𝝌2 are in there correct starting positions and the pin settings 
-have already been broken with some flaviour of Turingismus the "de-𝝌" exploits:
+have already been broken with some flavour of Turingismus the "de-𝝌" exploits:
 
 1) The properties of bitwise XOR: ∀ 5 bit 𝛼 and 𝛼' <=>  𝛼 = 𝛼' = 10010 <=>  𝛼 ⊕ 𝛼' = 00000
 2) The property of Lorenz where all 𝜓 wheels rotated in unison by increment `1` if at all
