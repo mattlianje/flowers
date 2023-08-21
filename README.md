@@ -30,29 +30,28 @@ result match {
   case Left(error) => println(s"Error encountered: $error")
 }
 ```
-**Output (if successful, look at Murray Baudot supported characters first):**
+**Output:**
 
 ```
-AW7('70.8592$.2 751*"!"*)4-65
-2)1')7238!-,88!?/!YYO I
-  GUSYUIYZX LRR BBFSCAHHFISJTDIVHCD4;)&)TOXGFW
-RMQVTB_NEUJFL_*)-./9);7_':*&)49('&/?
-8IJZIA KXTWZGNFQL
-VLY_GLP
-V DSKUW_YZZXSUID8/8:84;01"0' 0.36?;3
--";?-?: 09WF5?96/895.8203*80"6-(, 3'8:8,':28:$$5(;/)_/2;AJK8?.2 24.8&1
-!&6('
-:6)!*"4183*2'N V R,95)9(/6;!1.,&4054(95?.D
+TU7('70.85.2$(7 751*"!"*)4-65
+2)1')72*!. !!-/!_ 67??8"4*744784:044 ??!*:-(,(8"-803$.':)&GQAY! 7(9;;7-7!.-/9!3594432'(;5?/15 " $A ; "")8$"'75:*):!80
+)LTIQVHBULUCRCZSTUWQXU_VJILBWPZ 5'.
+3_._4.
+,8.$ )5?9$/_STBOW
+MBSMAE WRHGTOD GJMCNIZDP__CT_FXNV_RZVMMUQWOA 0677!*"(1/(9,'106&FTGVYCJCTFMMIRQRO1;3(1-195&0357:99-"?,-9)1((6UWGZZVNKYUH_ERRRL_
+FYYNLY AQYMLI_ROHWIBLHIYEXPEYZ3$/56?$C_MRLUERC3?58(3_5!X
+JKSZRORSC_DCUWCJTUYGTAGGOPY,,:1/3 !8(&'5!75!().
+'-0 (7558 -?2(7&2'2ZRGWBC2-'
 ```
 
-## Why de-𝝌 attacks?
+## Why "de-𝝌" attacks?
 
 When 𝝌<sub>1</sub> and 𝝌<sub>2</sub> are in there correct starting positions and the pin settings 
 have already been broken with some flavour of Turingismus the "de-𝝌" exploits:
 
-1) The properties of bitwise XOR: ∀ 5 bit 𝛼 and 𝛼' <->  𝛼 = 𝛼' = 10010 <->  𝛼 ⊕ 𝛼' = 00000
+1) The properties of bitwise XOR: ∀ 5 bit 𝛼 and 𝛼' ⟺  𝛼 = 𝛼' = 10010 ⟺  𝛼 ⊕ 𝛼' = 00000
 2) The property of Lorenz where all 𝜓 wheels rotated in unison by increment `1` if at all
-3) The corollary of 2) wherein more than `50%` of the time: 𝛥𝜓 = 0 where 𝛥i = i ⊕ î (^ = succeeding character)
+3) A corollary of 2, more than `50%` of the time 𝛥𝜓 = 0 where 𝛥i = i ⊕ î (^ = succeeding character)
 4) The properties of the German language with frequent double graphemes (`ff`, `ss`, `zz`) and the
 bad habits of teleprinter operators repeating `FigureShifts` and `LetterShifts` and `Spaces`
 
