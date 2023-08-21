@@ -47,19 +47,19 @@ V DSKUW_YZZXSUID8/8:84;01"0' 0.36?;3
 
 ## Why de-𝝌 attacks?
 
-When 𝝌1 and 𝝌2 are in there correct starting positions and the pin settings 
+When 𝝌<sub>1</sub> and 𝝌<sub>2</sub> are in there correct starting positions and the pin settings 
 have already been broken with some flavour of Turingismus the "de-𝝌" exploits:
 
-1) The properties of bitwise XOR: ∀ 5 bit 𝛼 and 𝛼' <=>  𝛼 = 𝛼' = 10010 <=>  𝛼 ⊕ 𝛼' = 00000
+1) The properties of bitwise XOR: ∀ 5 bit 𝛼 and 𝛼' <->  𝛼 = 𝛼' = 10010 <->  𝛼 ⊕ 𝛼' = 00000
 2) The property of Lorenz where all 𝜓 wheels rotated in unison by increment `1` if at all
-3) The corollary of 2) wherein more than `50%` of the time: 𝛥𝜓 = 0 where 𝛥s = s ⊕ s^ (^ = succeeding character)
+3) The corollary of 2) wherein more than `50%` of the time: 𝛥𝜓 = 0 where 𝛥i = i ⊕ î (^ = succeeding character)
 4) The properties of the German language with frequent double graphemes (`ff`, `ss`, `zz`) and the
 bad habits of teleprinter operators repeating `FigureShifts` and `LetterShifts` and `Spaces`
 
 The consequence of 1-4 for a given cipher-text `Z`: 
 
-- z(i)=ith cipher letter of Z
-- de-𝝌 = 𝛥z1 ⊕ 𝛥z2 ⊕ 𝛥𝝌1 ⊕ 𝛥𝝌2, ∀ z(i)∈Z
+- Z<sub>i</sub>=i<sup>th</sup> cipher letter of Z
+- de-𝝌 = 𝛥Z<sub>1</sub> ⊕ 𝛥Z<sub>2</sub> ⊕ 𝛥𝝌<sub>1</sub> ⊕ 𝛥𝝌<sub>2</sub> ... ∀ Z<sub>i</sub> ∈ Z
 
-de-𝝌 has ~50% `0`'s if the starting positions of 𝝌1 and 𝝌2 are incorrect
+de-𝝌 has ~50% `0`'s if the starting positions of 𝝌<sub>1</sub> and 𝝌<sub>2</sub> are incorrect
 and ~53% `0`s if they are correct and the cipher-text is longer than ~4000 characters.
