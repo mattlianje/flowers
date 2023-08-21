@@ -1,4 +1,4 @@
-# Lorenz Sz-40/42
+# Lorenz Sz-40/42A
 <img width="250" src="data/lorenz.jpg">
 
 Pure-fp Lorenz Sz-40/42 cipher machine that was used by German OKH/W during WW2. I created this repo to:
@@ -49,9 +49,11 @@ JKSZRORSC_DCUWCJTUYGTAGGOPY,,:1/3 !8(&'5!75!().
 When 𝝌<sub>1</sub> and 𝝌<sub>2</sub> are in there correct starting positions and the pin settings 
 have already been broken with some flavour of Turingismus the "de-𝝌" exploits:
 
-1) The properties of bitwise XOR ... ∀ 5 bit 𝛼 and 𝛼' ⟺  𝛼 = 𝛼' = 10010 ⟺  𝛼 ⊕ 𝛼' = 00000
+1) The properties of bitwise XOR ... 
+   - ∀ 5 bit 𝛼 and 𝛼' ⟺  𝛼 = 𝛼' = 10010 ⟺  𝛼 ⊕ 𝛼' = 00000
 2) The property of Lorenz where all 𝜓 wheels rotated in unison by increment `1` if at all
-3) A corollary of 2 ... more than `50%` of the time 𝛥𝜓 = 0 where 𝛥i = i ⊕ î (^ = succeeding character)
+3) A corollary of 2 ... 
+   - more than `50%` of the time 𝛥𝜓 = 0 where 𝛥i = i ⊕ î (^ = succeeding character)
 4) The properties of the German language with frequent double graphemes (`ff`, `ss`, `zz`) and the
 bad habits of teleprinter operators repeating `FigureShifts` and `LetterShifts` and `Spaces`
 
