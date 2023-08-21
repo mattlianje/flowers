@@ -53,7 +53,7 @@ have already been broken with some flavour of Turingismus the "de-𝝌" exploits
    - ∀ 5 bit 𝛼 and 𝛼' ⟺  𝛼 = 𝛼' = 10010 ⟺  𝛼 ⊕ 𝛼' = 00000
 2) The property of Lorenz where all 𝜓 wheels rotated in unison by increment `1` if at all
 3) A corollary of 2 ... 
-   - more than `50%` of the time 𝛥𝜓 = 0 where 𝛥i = i ⊕ î (^ = succeeding character)
+   - more than `50%` of the time 𝛥𝜓 = 0  ⟺ 𝛥i = i ⊕ î (^ = succeeding character)
 4) The properties of the German language with frequent double graphemes (`ff`, `ss`, `zz`) and the
 bad habits of teleprinter operators repeating `FigureShifts` and `LetterShifts` and `Spaces`
 
