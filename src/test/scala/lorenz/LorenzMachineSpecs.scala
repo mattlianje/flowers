@@ -1,7 +1,7 @@
 package lorenz
 
 import commons.Baudot.BitString
-import commons.Language.German
+import commons.Language.{English, German}
 import commons.PlaintextReader.{loadLorenzBitStream, loadLorenzPlaintext}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
@@ -45,13 +45,9 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
       .getOrElse(fail("Failed to create LorenzMachine"))
 
     val input = "Abteilung"
-    val input2 = "Aaaaaaaaaaaa"
     val expectedOutput = "AIKVIFOWG"
 
     val result = machine.encipherText(input)
-    val result2 = machine.encipherText(input2)
-
-    println(result2)
 
     result shouldBe Right(expectedOutput)
   }
@@ -66,9 +62,6 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
     val result = machine.encipherText(input)
     // Checks if results is Right()
     result should be a Symbol("right")
-
-    println(result.getOrElse(""))
-
   }
 
   it should "encipher BITSTRINGS_ZITADELLE correctly" in {
@@ -81,7 +74,7 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
 
     // Check if result is Right() and matches expected
     result match {
-      case Right(output) => println(output) //output shouldBe EXPECTED_BITSTRINGS_ZITADELLE
+      case Right(output) => println(output)
       case Left(error) => fail(s"Enciphering failed with error: $error")
     }
   }
