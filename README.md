@@ -66,4 +66,4 @@ The consequence of 1-4 for a given cipher-text `Z`:
 de-𝝌 has ~50% `0`'s if the starting positions of 𝝌<sub>1</sub> and 𝝌<sub>2</sub> are incorrect
 and ~53% `0`s if they are correct and the cipher-text is longer than ~4000 characters.
 
-<img width="600" src="data/lorenz.svg">
+<img src="data/lorenz.svg">
