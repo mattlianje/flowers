@@ -59,7 +59,6 @@ bad habits of teleprinter operators repeating `FigureShifts` and `LetterShifts` 
 
 The consequence of 1-4 for a given cipher-text `Z`: 
 
-<<<<<<< HEAD
 - Z<sub>i,j</sub>=j<sup>th</sup> impulse of i<sup>th</sup> cipher letter of Z
 - de-𝝌 = 𝛥Z<sub>i,1</sub> ⊕ 𝛥Z<sub>i,2</sub> ⊕ 𝛥𝝌<sub>1</sub> ⊕ 𝛥𝝌<sub>2</sub> ... ∀ Z<sub>i</sub> ∈ Z
 
