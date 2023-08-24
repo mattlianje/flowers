@@ -44,8 +44,9 @@ JKSZRORSC_DCUWCJTUYGTAGGOPY,,:1/3 !8(&'5!75!().
 '-0 (7558 -?2(7&2'2ZRGWBC2-'
 ```
 ## Lorenz and "𝛥"-ing
-- Lorenz XOR's 5 plaintext impulses P<sub>1...5</sub>, with the corresponding cams of 𝝌, then 𝜓 to produce cipher stream `Z`
-- 𝝌<sub>1...5</sub> and 𝜇<sub>1</sub> rotate after each input. 𝜇<sub>2</sub> rotates ⟺ 𝜇<sub>1</sub> = 1, and 𝜓<sub>1...5</sub> rotate ⟺ 𝜇<sub>1</sub> ⊕ 𝜇<sub>2</sub> = 1
+- Lorenz XOR's 5 plaintext impulses P<sub>{1...5}</sub>, with the corresponding cams of 𝝌, then 𝜓 to produce Z
+- With the same start settings for decryption: Z ⊕ 𝜓 ⊕ 𝝌 = P
+- 𝝌<sub>{1...5}</sub> and 𝜇<sub>1</sub> rotate after each input. 𝜇<sub>2</sub> rotates ⟺ 𝜇<sub>1</sub> = 1, and 𝜓<sub>{1...5}</sub> rotate ⟺ 𝜇<sub>1</sub> ⊕ 𝜇<sub>2</sub> = 1
 
 <img src="data/lorenz.svg">
   
