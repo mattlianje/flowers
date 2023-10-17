@@ -1,0 +1,5 @@
+package streams
+
+class DataGenerator {
+
+}
