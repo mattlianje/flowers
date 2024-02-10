@@ -19,11 +19,11 @@ lazy val root = (project in file("."))
       Developer(
         id = "mattlianje",
         name = "Matthieu Court",
-        email = "your@email", // Please replace with your actual email
+        email = "matthieu.court@protonmail.com",
         url = url("https://github.com/mattlianje")
       )
     ),
-    description := "Some description about your project.", // Consider adding a brief description of your project
+    description := "Sz-40/42 Lorenz Machine for your Scala apps",
     licenses := List(
       "GNU GPL v3" -> new URL("https://www.gnu.org/licenses/gpl-3.0.en.html")
     ),
@@ -36,7 +36,6 @@ lazy val root = (project in file("."))
     },
     publishMavenStyle := true
   )
-
 
 val zio_version = "2.0.13"
 libraryDependencies ++= Seq("dev.zio" %% "zio" % zio_version,
