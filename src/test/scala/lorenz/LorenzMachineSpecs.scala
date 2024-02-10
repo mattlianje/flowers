@@ -74,7 +74,9 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
 
     // Check if result is Right() and matches expected
     result match {
-      case Right(output) => println(output)
+      case Right(output) => 
+        println("SUCCESS")
+        //println(output)
       case Left(error) => fail(s"Enciphering failed with error: $error")
     }
   }
