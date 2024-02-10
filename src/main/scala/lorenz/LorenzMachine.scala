@@ -31,7 +31,6 @@ case class LorenzMachine(
     * 3. 𝝁1 ⊕ 𝝁2 == 1 → ∀ 𝜓 1 step
     * ¬(𝝁1 ⊕ 𝝁2 == 1) → ∀ 𝜓 0 step
     */
-  //def updateState(): LorenzMachine = rotateChi.rotateMu1.rotateMu2.rotatePsi
   def updateState(): LorenzMachine = {
     mu1.bit match {
       case 1 =>
