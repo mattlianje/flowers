@@ -52,7 +52,7 @@ JKSZRORSC_DCUWCJTUYGTAGGOPY,,:1/3 !8(&'5!75!().
   
 ## Why "de-𝝌" attacks?
 
-When 𝝌<sub>1</sub> and 𝝌<sub>2</sub> are in there correct starting positions and the pin settings 
+When 𝝌<sub>1</sub> and 𝝌<sub>2</sub> are in their correct starting positions and the pin settings 
 have already been broken with some flavour of Turingismus the "de-𝝌" exploits:
 
 1) The properties of bitwise XOR ... 
