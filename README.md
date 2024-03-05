@@ -1,11 +1,26 @@
-# Lorenz Sz-40/42A
-<img width="250" src="data/lorenz.jpg">
+# 🌸「Flowers」
+<img width="250" src="data/tommy-flowers.jpeg">
 
-Pure-fp Lorenz Sz-40/42 cipher machine that was used by German OKH/W during WW2. I created this repo to:
-- Learn about JVM concurrency via. parallelizing "de-𝝌" attacks 
-- Share my personal templates for modern data platforms
+Library for pure-FP access to WW2-era electro-mechanical cipher machines.
+It is named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers), who
+built [Colossus](https://en.wikipedia.org/wiki/Colossus_computer) to beat the Germans.
+
+I created this repo to:
+- Learn about JVM concurrency by parallelizing "de-𝝌", Turingismus, Banburnismus, "cribs", and other attacks used at BP.
+- Share findings about WW2 cipher machines
+
+## Machines
+```
+Lorenz Sz-40/42     — Rotor-stream (Vernam)        — German (Nazi) High Command OKH/W
+Enigma M3/4         — Substitution                 — German (Nazi) Military, all branches
+```
 
 ## Usage
+Add the following to your `build.sbt`:
+```scala
+libraryDependencies += "io.github.mattlianje" %% "flowers" % "0.1.0-SNAPSHOT"
+```
+Example use:
 ```scala
 import lorenz.LorenzMachine
 
@@ -43,14 +58,16 @@ FYYNLY AQYMLI_ROHWIBLHIYEXPEYZ3$/56?$C_MRLUERC3?58(3_5!X
 JKSZRORSC_DCUWCJTUYGTAGGOPY,,:1/3 !8(&'5!75!().
 '-0 (7558 -?2(7&2'2ZRGWBC2-'
 ```
-## Lorenz and "𝛥"-ing
+
+## Deep-dive: Lorenz Sz-40/42
+### Lorenz and "𝛥"-ing
 - Lorenz XOR's 5 plaintext impulses P<sub>{1...5}</sub>, with the corresponding cams of 𝝌, then 𝜓 to produce Z
 - Decryption is done as follows: Z ⊕ 𝜓 ⊕ 𝝌 = P
 - 𝝌<sub>{1...5}</sub> and 𝜇<sub>1</sub> rotate after each input. 𝜇<sub>2</sub> rotates ⟺ 𝜇<sub>1</sub> = 1, and 𝜓<sub>{1...5}</sub> rotate ⟺ 𝜇<sub>1</sub> ⊕ 𝜇<sub>2</sub> = 1
 
 <img src="data/lorenz.svg">
   
-## Why "de-𝝌" attacks?
+### Why "de-𝝌" attacks?
 
 When 𝝌<sub>1</sub> and 𝝌<sub>2</sub> are in their correct starting positions and the pin settings 
 have already been broken with some flavour of Turingismus the "de-𝝌" exploits:
