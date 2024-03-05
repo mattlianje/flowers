@@ -1,12 +1,12 @@
 # 🌸「Flowers」
+[Tommy Flowers, MBE](https://en.wikipedia.org/wiki/Tommy_Flowers) 1905-1998
+
 <img width="250" src="data/tommy-flowers.jpeg">
 
-Library for pure-FP emulation of WW2-era electro-mechanical cipher machines.
-It is named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers), who
-built [Colossus](https://en.wikipedia.org/wiki/Colossus_computer) to beat the Germans.
+Scala library for pure-FP emulation of WW2-era electro-mechanical cipher machines.
 
 I created this repo to:
-- Learn about JVM concurrency by parallelizing "de-𝝌", Turingismus, Banburnismus, "cribs", and other attacks used at BP.
+- Learn about JVM concurrency by parallelizing "de-𝝌", Turingismus, Banburnismus, cribs, and other attacks used at BP.
 - Share findings about WW2 cipher machines
 
 ## Machines
