@@ -13,9 +13,7 @@ case class Wheel(pins: List[Int], pos: Int) {
     "Position should be between 0 and (number of pins - 1)"
   )
   def rotate: Wheel = copy(pos = (pos + 1) % pins.size)
-
   def bit: Int = pins(pos)
-
   def getDelta: Int = {
     val nextPosBit = pins((pos + 1) % pins.size)
     bit ^ nextPosBit
