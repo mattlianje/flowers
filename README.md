@@ -1,7 +1,7 @@
 # 🌸「Flowers」
-[Tommy Flowers, MBE](https://en.wikipedia.org/wiki/Tommy_Flowers) 1905-1998
+_In memoriam_ [Tommy Flowers, MBE](https://en.wikipedia.org/wiki/Tommy_Flowers) 1905-1998
 
-<img width="250" src="data/tommy-flowers.jpeg">
+<img height="250" src="data/tommy-flowers.jpeg">
 
 Scala library for pure-FP emulation of WW2-era electro-mechanical cipher machines.
 
