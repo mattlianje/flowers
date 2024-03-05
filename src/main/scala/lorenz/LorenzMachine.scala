@@ -130,9 +130,9 @@ case class LorenzMachine(
 object LorenzMachine {
 
   val CHI_PINS: List[Int] =
-    List(41, 31, 29, 26, 23) // 𝝌1, 𝝌2, 𝝌3, 𝝌4, 𝝌5
+    List(41, 31, 29, 26, 23) // 𝝌1, ..., 𝝌5
   val PSI_PINS: List[Int] =
-    List(43, 47, 51, 53, 59) // 𝜓1, 𝜓2, 𝜓3, 𝜓4, 𝜓5
+    List(43, 47, 51, 53, 59) // 𝜓1, ..., 𝜓5
   val MU_PINS: List[Int] = List(37, 61) // 𝝁1, 𝝁2
 
   def createMachine(
