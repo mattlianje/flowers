@@ -44,12 +44,15 @@ class BaudotSpecs extends AnyFlatSpec with Matchers {
   }
 
   "stringToBaudotChunks" should "return a sequence of bit strings for a valid input string" in {
-    // Testing that lowercase is handled nicely as well
-    stringToBaudotChunks("To") shouldBe Some(Seq("00001", "00011"))
-    // Needs to add a F (FigureShift) before the "9"
-    stringToBaudotChunks("9") shouldBe Some(Seq("11011", "00011"))
-    // Testing we toggle to F mode and back to L mode
-    stringToBaudotChunks("A1B") shouldBe Some(Seq("11000", "11011", "11101", "11111", "10011"))
+    stringToBaudotChunks("To") shouldBe Some(
+      Seq("00001", "00011")
+    ) // Testing that lowercase is handled nicely as well
+    stringToBaudotChunks("9") shouldBe Some(
+      Seq("11011", "00011")
+    ) // Needs to add a F (FigureShift) before the "9"
+    stringToBaudotChunks("A1B") shouldBe Some(
+      Seq("11000", "11011", "11101", "11111", "10011")
+    ) // Testing we toggle to F mode and back to L mode
     stringToBaudotChunks("Ê") shouldBe None
   }
 
@@ -60,6 +63,5 @@ class BaudotSpecs extends AnyFlatSpec with Matchers {
     val result = getDelta(bitStrings)
     result shouldEqual Some(expectedDeltas)
   }
-
 
 }

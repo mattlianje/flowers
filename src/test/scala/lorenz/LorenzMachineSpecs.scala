@@ -11,17 +11,16 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
 
   private val TEST_MACHINE =
     LorenzMachine(Wheel(List(0, 1), 0), Wheel(List(1, 0), 0), List(), List())
-
   private val TEST_MACHINE_2 = LorenzGenerator.generateRandomLorenzMachine()
-
-  private val BITSTRINGS_ZITADELLE: Seq[BitString] = loadLorenzBitStream(German) match {
+  private val BITSTRINGS_ZITADELLE: Seq[BitString] = loadLorenzBitStream(
+    German
+  ) match {
     case Some(value) => value
-    case None => Seq.empty[BitString]
+    case None        => Seq.empty[BitString]
   }
 
   "A Wheel" should "rotate correctly" in {
-    // A wheel with pins 0,1,0,1
-    val wheel = Wheel.loadDefaultWheel(4)
+    val wheel = Wheel.loadDefaultWheel(4) // A wheel with pins 0,1,0,1
     wheel.rotate.pos shouldBe 1
   }
 
@@ -32,10 +31,13 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
 
   it should "rotate Mu2 conditionally" in {
     val machine = TEST_MACHINE
-    // Mu2 should not rotate when Mu1's bit is 0
-    machine.updateState().mu2.pos shouldBe 0
-    // Mu2 should rotate when Mu1's bit is 1
-    val newMachine = TEST_MACHINE.updateState()
+    machine
+      .updateState()
+      .mu2
+      .pos shouldBe 0 // Mu2 should not rotate when Mu1's bit is 0
+    val newMachine =
+      TEST_MACHINE.updateState() // Mu2 should rotate when Mu1's bit is 1
+
     newMachine.updateState().mu2.pos shouldBe 1
   }
 
@@ -74,9 +76,9 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
 
     // Check if result is Right() and matches expected
     result match {
-      case Right(output) => 
+      case Right(output) =>
         println("SUCCESS")
-        //println(output)
+      //println(output)
       case Left(error) => fail(s"Enciphering failed with error: $error")
     }
   }
@@ -90,7 +92,8 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
   it should "rotate mu2 wheel if mu1's bit is 1" in {
     val updatedMachine = TEST_MACHINE_2.updateState()
 
-    if (TEST_MACHINE_2.mu1.bit == 1) updatedMachine.mu2.pos should not be TEST_MACHINE_2.mu2.pos
+    if (TEST_MACHINE_2.mu1.bit == 1)
+      updatedMachine.mu2.pos should not be TEST_MACHINE_2.mu2.pos
     else updatedMachine.mu2.pos should be(TEST_MACHINE_2.mu2.pos)
   }
 
@@ -98,8 +101,27 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
     val updatedMachine = TEST_MACHINE_2.updateState()
 
     updatedMachine.chi.zip(TEST_MACHINE_2.chi).foreach {
-      case (updatedWheel, initialWheel) => updatedWheel.pos should not be initialWheel.pos
+      case (updatedWheel, initialWheel) =>
+        updatedWheel.pos should not be initialWheel.pos
     }
+  }
+
+  "A LorenzMachine" should "correctly decrypt enciphered text back to the original plaintext" in {
+    val machine = LorenzMachine
+      .createMachine()
+      .getOrElse(fail("Failed to create LorenzMachine"))
+
+    val plaintext = "ABTEILUNGXYZ"
+    val enciphered = machine.encipherText(plaintext) match {
+      case Right(ciphertext) => ciphertext
+      case Left(error)       => fail(s"Enciphering failed with error: $error")
+    }
+
+    val deciphered = machine.encipherText(enciphered) match {
+      case Right(originalText) => originalText
+      case Left(error)         => fail(s"Deciphering failed with error: $error")
+    }
+    deciphered shouldBe plaintext
   }
 
   it should "rotate psi wheels if mu1 and mu2 bits XOR to 1" in {
@@ -107,11 +129,13 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
 
     if ((TEST_MACHINE_2.mu1.bit ^ TEST_MACHINE_2.mu2.bit) == 1) {
       updatedMachine.psi.zip(TEST_MACHINE_2.psi).foreach {
-        case (updatedWheel, initialWheel) => updatedWheel.pos should not be initialWheel.pos
+        case (updatedWheel, initialWheel) =>
+          updatedWheel.pos should not be initialWheel.pos
       }
     } else {
       updatedMachine.psi.zip(TEST_MACHINE_2.psi).foreach {
-        case (updatedWheel, initialWheel) => updatedWheel.pos should be(initialWheel.pos)
+        case (updatedWheel, initialWheel) =>
+          updatedWheel.pos should be(initialWheel.pos)
       }
     }
   }
