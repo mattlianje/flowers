@@ -3,7 +3,7 @@
 
 <img height="250" src="data/tommy-flowers.jpeg">
 
-「Pure FP Scala library」 for emulating WW2-era cipher machines.
+*「Pure FP Scala library」* for emulating WW2-era cipher machines.
 
 I created this repo to:
 - Learn about JVM concurrency by parallelizing "de-𝝌", Turingismus, Banburnismus, cribs, and other attacks used at BP.
