@@ -12,10 +12,10 @@ I created this repo to:
 ## Machines
 `flowers` currently offers access to these machines:
 
-| Machine         | Picture               | Cipher Type           | Users                                |
-|-----------------|-----------------------|-----------------------|--------------------------------------|
-| Enigma M3/M4    | ![](data/enigma.jpeg) | Substitution          | German (Nazi) Military, all branches |
-| Lorenz Sz-40/42 | ![](data/lorenz.jpg)  | Rotor-stream (Vernam) | German (Nazi) High Command OKH/W     |
+| Machine         | Picture                                                | Cipher Type           | Users                                |
+|-----------------|--------------------------------------------------------|-----------------------|--------------------------------------|
+| Enigma M3/M4    | <img src="data/enigma.jpeg" alt="Enigma" width="100"/> | Substitution          | German (Nazi) Military, all branches |
+| Lorenz Sz-40/42 | <img src="data/lorenz.jpg" alt="Lorenz" width="100"/>  | Rotor-stream (Vernam) | German (Nazi) High Command OKH/W     |
 
 ## Usage
 Add the following to your `build.sbt`:
