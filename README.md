@@ -6,7 +6,7 @@
 **「Pure FP Scala library」** for emulating WW2-era cipher machines.
 
 I created this repo to:
-- Learn about JVM concurrency by parallelizing "de-𝝌", Turingismus, Banburnismus, cribs, and other attacks used at BP.
+- Learn about JVM concurrency by parallelizing "de-𝝌" and other attacks
 - Share findings about WW2 cipher machines
 
 ## 「Machines」
