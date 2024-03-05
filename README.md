@@ -10,9 +10,10 @@ I created this repo to:
 - Share findings about WW2 cipher machines
 
 ## Machines
+`flowers` currently offers access to these machines:
 ```
-Lorenz Sz-40/42     — Rotor-stream (Vernam)        — German (Nazi) High Command OKH/W
-Enigma M3/4         — Substitution                 — German (Nazi) Military, all branches
+Lorenz Sz-40/42     — {{type: Rotor-stream (Vernam) user: German (Nazi) High Command OKH/W}}
+Enigma M3/4         — {{type: Substitution, user: German (Nazi) Military, all branches}}
 ```
 
 ## Usage
