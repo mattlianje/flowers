@@ -1,9 +1,9 @@
 # 🌸「Flowers」
-_In memoriam_ [Tommy Flowers, MBE](https://en.wikipedia.org/wiki/Tommy_Flowers) 1905-1998
+[Tommy Flowers, MBE](https://en.wikipedia.org/wiki/Tommy_Flowers) 1905-1998
 
 <img height="250" src="data/tommy-flowers.jpeg">
 
-Scala library for pure-FP emulation of WW2-era electro-mechanical cipher machines.
+「Pure FP Scala library」 for emulating WW2-era cipher machines.
 
 I created this repo to:
 - Learn about JVM concurrency by parallelizing "de-𝝌", Turingismus, Banburnismus, cribs, and other attacks used at BP.
