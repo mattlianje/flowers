@@ -11,10 +11,11 @@ I created this repo to:
 
 ## Machines
 `flowers` currently offers access to these machines:
-```
-Lorenz Sz-40/42     — Rotor-stream (Vernam) | German (Nazi) High Command OKH/W
-Enigma M3/4         — Substitution | German (Nazi) Military, all branches
-```
+
+| Machine         | Cipher Type           | Users                                |
+|-----------------|-----------------------|--------------------------------------|
+| Enigma M3/M4    | Substitution          | German (Nazi) Military, all branches |
+| Lorenz Sz-40/42 | Rotor-stream (Vernam) | German (Nazi) High Command OKH/W     |
 
 ## Usage
 Add the following to your `build.sbt`:
