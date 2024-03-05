@@ -9,7 +9,7 @@ I created this repo to:
 - Learn about JVM concurrency by parallelizing "de-𝝌", Turingismus, Banburnismus, cribs, and other attacks used at BP.
 - Share findings about WW2 cipher machines
 
-## Machines
+## 「Machines」
 `flowers` currently offers access to these machines:
 
 | Machine         | Picture                                                | Cipher Type           | Users                                |
@@ -17,7 +17,7 @@ I created this repo to:
 | Enigma M3/M4    | <img src="data/enigma.jpeg" alt="Enigma" width="100"/> | Substitution          | German (Nazi) Military, all branches |
 | Lorenz Sz-40/42 | <img src="data/lorenz.jpg" alt="Lorenz" width="100"/>  | Rotor-stream (Vernam) | German (Nazi) High Command OKH/W     |
 
-## Usage
+## 「Usage」
 Add the following to your `build.sbt`:
 ```scala
 libraryDependencies += "io.github.mattlianje" %% "flowers" % "0.1.0-SNAPSHOT"
@@ -61,7 +61,7 @@ JKSZRORSC_DCUWCJTUYGTAGGOPY,,:1/3 !8(&'5!75!().
 '-0 (7558 -?2(7&2'2ZRGWBC2-'
 ```
 
-## Deep-dive: Lorenz Sz-40/42
+## 「Deep-dive」: Lorenz Sz-40/42
 ### Lorenz and "𝛥"-ing
 - Lorenz XOR's 5 plaintext impulses P<sub>{1...5}</sub>, with the corresponding cams of 𝝌, then 𝜓 to produce Z
 - Decryption is done as follows: Z ⊕ 𝜓 ⊕ 𝝌 = P
