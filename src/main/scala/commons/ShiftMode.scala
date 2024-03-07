@@ -1,5 +1,5 @@
 package commons
 
-object ShiftMode extends Enumeration{
+object ShiftMode extends Enumeration {
   val L, F = Value
 }
