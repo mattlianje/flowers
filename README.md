@@ -1,5 +1,5 @@
 # 🌸「Flowers」
-**Pure FP Scala library** for emulating WW2-era cipher machines.
+Flowers is a pure FP Scala library for emulating WW2-era cipher machines.
 
 <img height="250" src="data/tommy-flowers.jpeg">
 
