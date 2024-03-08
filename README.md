@@ -25,7 +25,7 @@ Example use:
 ```scala
 import flowers.machines.lorenz._
 
-val inputText =
+val input =
   """
     | To OKH OP ABT and to OKH Foreign Armies East from Army Group South IA 01 No 411/43,
     | signed von Weich, General Feldsmarchall, dated 25/4:
@@ -38,12 +38,12 @@ val inputText =
 
 val result = for {
   machine <- LorenzMachine.getDefault()
-  cipherText <- machine.encrypt(inputText)
+  cipherText <- machine.encrypt(input)
 } yield cipherText
 
 result match {
   case Right(text) => println(text)
-  case Left(error) => println(s"Error encountered: $error")
+  case Left(error) => println(s"Oops: $error")
 }
 ```
 
