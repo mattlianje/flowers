@@ -5,10 +5,6 @@
 
 **「Pure FP Scala library」** for emulating WW2-era cipher machines.
 
-I created this repo to:
-- Learn about JVM concurrency by parallelizing "de-𝝌" and other attacks
-- Share findings about WW2 cipher machines
-
 ## 「Machines」
 `flowers` currently offers access to these machines:
 
@@ -20,26 +16,29 @@ I created this repo to:
 ## 「Usage」
 Add the following to your `build.sbt`:
 ```scala
-libraryDependencies += "io.github.mattlianje" %% "flowers" % "0.1.0-SNAPSHOT"
+libraryDependencies ++= Seq(
+  "io.github.mattlianje" %% "flowers" % "0.1.0-SNAPSHOT"
+)
 ```
 Example use:
-```scala
-import lorenz.LorenzMachine
 
-val inputText = 
+```scala
+import flowers.machines.lorenz._
+
+val inputText =
   """
-  | To OKH OP ABT and to OKH Foreign Armies East from Army Group South IA 01 No 411/43,
-  | signed von Weich, General Feldsmarchall, dated 25/4:
-  | Comprehensive appreciation of the enemy for Zitadelle
-  | In the main the appreciation of the enemy remains the same as reported in 
-  | Army Group South IIA, No. 0477/43 of 29/3and in the supplementary appreciation of 15/4
-  | The main concentration, which was already then apparent on the north flank of the Army Group
-  | in the general area Kursk-Ssudsha-Volchansk-Ostrogoshk, can now be clearly recognized
+    | To OKH OP ABT and to OKH Foreign Armies East from Army Group South IA 01 No 411/43,
+    | signed von Weich, General Feldsmarchall, dated 25/4:
+    | Comprehensive appreciation of the enemy for Zitadelle
+    | In the main the appreciation of the enemy remains the same as reported in 
+    | Army Group South IIA, No. 0477/43 of 29/3and in the supplementary appreciation of 15/4
+    | The main concentration, which was already then apparent on the north flank of the Army Group
+    | in the general area Kursk-Ssudsha-Volchansk-Ostrogoshk, can now be clearly recognized
   """.stripMargin
 
 val result = for {
-  machine <- LorenzMachine.createMachine()
-  cipherText <- machine.encipherText(inputText)
+  machine <- LorenzMachine.getDefault()
+  cipherText <- machine.encrypt(inputText)
 } yield cipherText
 
 result match {
@@ -47,6 +46,7 @@ result match {
   case Left(error) => println(s"Error encountered: $error")
 }
 ```
+
 **Output:**
 
 ```

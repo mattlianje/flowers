@@ -4,7 +4,7 @@ import attacks.DeChi.runDeChi2
 import commons.Baudot.{BitString, getDelta}
 import commons.Language.German
 import commons.PlaintextReader.loadLorenzBitStream
-import lorenz.{LorenzGenerator, LorenzMachine, Wheel}
+import machines.lorenz.{LorenzMachine, Wheel}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
@@ -12,7 +12,7 @@ import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
 class DeChiSpecs extends AnyFlatSpec with Matchers {
 
   private val TEST_MACHINE: LorenzMachine =
-    LorenzGenerator.generateRandomLorenzMachine()
+    LorenzMachine.getDefault()
 
   private val BITSTRINGS_ZITADELLE: Seq[BitString] = loadLorenzBitStream(
     German
@@ -49,7 +49,7 @@ class DeChiSpecs extends AnyFlatSpec with Matchers {
         getDelta(enciphered.toList) match {
           case Some(deltaZ) =>
             val WRONG_MACHINE =
-              LorenzGenerator.withRandomChiPositions(TEST_MACHINE)
+              LorenzMachine.withRandomChiPositions(TEST_MACHINE)
             val wrongResult = runDeChi2(WRONG_MACHINE, deltaZ)
             val correctResult = runDeChi2(TEST_MACHINE, deltaZ)
 
