@@ -4,7 +4,7 @@
 
 [Tommy Flowers, MBE](https://en.wikipedia.org/wiki/Tommy_Flowers) 1905-1998
 
-**「Pure-fp Scala library」** for emulating WW2-era cipher machines.
+**Pure-fp Scala library** for emulating WW2-era cipher machines.
 
 ## 「Machines」
 `flowers` currently offers access to these machines:
