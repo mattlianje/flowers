@@ -29,5 +29,4 @@ object PlaintextReader {
       case None        => None
     }
   }
-
 }

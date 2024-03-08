@@ -1,4 +1,4 @@
-package lorenz
+package machines.lorenz
 
 import commons.Baudot.{
   BitString,
@@ -6,6 +6,9 @@ import commons.Baudot.{
   bitwiseXOR,
   stringToBaudotChunks
 }
+import commons.CipherMachine
+
+import scala.util.Random
 
 /** Case class representing the current state of a Lorenz machine and its wheels
   * By default it simulates an Sz-42A which had the psi wheels rotate under direction
@@ -22,7 +25,7 @@ case class LorenzMachine(
     mu2: Wheel,
     chi: List[Wheel],
     psi: List[Wheel]
-) {
+) extends CipherMachine {
 
   /** Lorenz Machine action upon each key press
     *
@@ -100,7 +103,7 @@ case class LorenzMachine(
       .map(_._1)
   }
 
-  def encipherText(input: String): Either[RuntimeException, String] = {
+  def encrypt(input: String): Either[RuntimeException, String] = {
     stringToBaudotChunks(input) match {
       case Some(bitStrings) =>
         encipher(bitStrings) match {
@@ -124,7 +127,6 @@ case class LorenzMachine(
         )
     }
   }
-
 }
 
 object LorenzMachine {
@@ -146,13 +148,13 @@ object LorenzMachine {
         defaultPins: List[Int]
     ): Either[String, List[Wheel]] =
       userWheelsOpt match {
-        case Some(userWheels) if validConfiguration(userWheels, defaultPins) =>
+        case Some(userWheels) if isValidConf(userWheels, defaultPins) =>
           Right(userWheels)
         case None => Right(defaultPins.map(Wheel.loadDefaultWheel))
         case _    => Left("Incorrect wheel configuration provided.")
       }
 
-    def validConfiguration(
+    def isValidConf(
         userWheels: List[Wheel],
         pins: List[Int]
     ): Boolean =
@@ -166,4 +168,30 @@ object LorenzMachine {
       mu <- createWheel(mu, MU_PINS)
     } yield LorenzMachine(mu.head, mu.last, chi, psi)
   }
+
+  private def generateRandomPins(pinCount: Int): List[Int] =
+    Random.shuffle(
+      List.fill(pinCount / 2)(0) ++ List.fill((pinCount + 1) / 2)(1)
+    )
+
+  private def generateRandomWheels(pinsList: List[Int]): List[Wheel] =
+    pinsList.map { pinCount =>
+      val pins = generateRandomPins(pinCount)
+      Wheel(pins, Random.nextInt(pinCount))
+    }
+
+  def getDefault(): LorenzMachine = {
+    val chiWheels = generateRandomWheels(CHI_PINS)
+    val psiWheels = generateRandomWheels(PSI_PINS)
+    val muWheels = generateRandomWheels(MU_PINS)
+
+    LorenzMachine(muWheels.head, muWheels(1), chiWheels, psiWheels)
+  }
+
+  def withRandomChiPositions(machine: LorenzMachine): LorenzMachine =
+    machine.copy(chi =
+      machine.chi.map(wheel =>
+        wheel.copy(pos = Random.nextInt(wheel.pins.size))
+      )
+    )
 }

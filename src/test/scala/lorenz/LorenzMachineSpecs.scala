@@ -3,6 +3,7 @@ package lorenz
 import commons.Baudot.BitString
 import commons.Language.{English, German}
 import commons.PlaintextReader.{loadLorenzBitStream, loadLorenzPlaintext}
+import machines.lorenz.{LorenzMachine, Wheel}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
@@ -11,7 +12,7 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
 
   private val TEST_MACHINE =
     LorenzMachine(Wheel(List(0, 1), 0), Wheel(List(1, 0), 0), List(), List())
-  private val TEST_MACHINE_2 = LorenzGenerator.generateRandomLorenzMachine()
+  private val TEST_MACHINE_2 = LorenzMachine.getDefault()
   private val BITSTRINGS_ZITADELLE: Seq[BitString] = loadLorenzBitStream(
     German
   ) match {
@@ -49,7 +50,7 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
     val input = "Abteilung"
     val expectedOutput = "AIKVIFOWG"
 
-    val result = machine.encipherText(input)
+    val result = machine.encrypt(input)
 
     result shouldBe Right(expectedOutput)
   }
@@ -61,7 +62,7 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
 
     val input = loadLorenzPlaintext(German)
 
-    val result = machine.encipherText(input)
+    val result = machine.encrypt(input)
     // Checks if results is Right()
     result should be a Symbol("right")
   }
@@ -78,7 +79,6 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
     result match {
       case Right(output) =>
         println("SUCCESS")
-      //println(output)
       case Left(error) => fail(s"Enciphering failed with error: $error")
     }
   }
@@ -112,12 +112,12 @@ class LorenzMachineSpecs extends AnyFlatSpec with Matchers {
       .getOrElse(fail("Failed to create LorenzMachine"))
 
     val plaintext = "ABTEILUNGXYZ"
-    val enciphered = machine.encipherText(plaintext) match {
+    val enciphered = machine.encrypt(plaintext) match {
       case Right(ciphertext) => ciphertext
       case Left(error)       => fail(s"Enciphering failed with error: $error")
     }
 
-    val deciphered = machine.encipherText(enciphered) match {
+    val deciphered = machine.encrypt(enciphered) match {
       case Right(originalText) => originalText
       case Left(error)         => fail(s"Deciphering failed with error: $error")
     }

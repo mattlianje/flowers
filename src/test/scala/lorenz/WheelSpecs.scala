@@ -1,5 +1,6 @@
 package lorenz
 
+import machines.lorenz.Wheel
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

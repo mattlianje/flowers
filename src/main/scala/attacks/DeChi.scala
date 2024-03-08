@@ -1,7 +1,7 @@
 package attacks
 
 import commons.Baudot.BitString
-import lorenz.{LorenzMachine, Wheel}
+import machines.lorenz.{LorenzMachine, Wheel}
 
 object DeChi {
   def getStartingPositions(chi1: Wheel, chi2: Wheel): Seq[(Int, Int)] = {

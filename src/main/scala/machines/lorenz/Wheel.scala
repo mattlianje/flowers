@@ -1,4 +1,4 @@
-package lorenz
+package machines.lorenz
 
 /** Case class representing any of the wheels on the Lorenz machines
   *  They had a different number of cams, and each can could be raised or lowered

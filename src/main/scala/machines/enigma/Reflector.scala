@@ -1,4 +1,4 @@
-package enigma
+package machines.enigma
 
 case class Reflector(mapping: String) {
   require(mapping.length == 26, "Reflector mapping must be 26 characters long.")

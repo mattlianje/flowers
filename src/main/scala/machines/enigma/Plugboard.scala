@@ -1,4 +1,4 @@
-package enigma
+package machines.enigma
 
 case class Plugboard(mapping: Map[Char, Char]) {
 

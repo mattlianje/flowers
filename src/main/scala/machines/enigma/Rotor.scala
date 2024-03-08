@@ -1,4 +1,4 @@
-package enigma
+package machines.enigma
 
 case class Rotor(
     letterRoll: String,
