@@ -3,7 +3,7 @@
 
 <img height="250" src="data/tommy-flowers.jpeg">
 
-**「Flowers」is pure-fp Scala library** for emulating WW2-era cipher machines.
+**「Pure-fp Scala library」** for emulating WW2-era cipher machines.
 
 ## 「Machines」
 `flowers` currently offers access to these machines:
