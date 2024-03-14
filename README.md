@@ -18,7 +18,7 @@
 Add the following to your `build.sbt`:
 ```scala
 libraryDependencies ++= Seq(
-  "io.github.mattlianje" %% "flowers_2.13" % "0.1.0-SNAPSHOT"
+  "io.github.mattlianje" %% "flowers" % "0.1.0-SNAPSHOT"
 )
 ```
 Example use:
