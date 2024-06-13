@@ -1,20 +1,20 @@
-# 🌸「Flowers」
 
-<img height="250" src="data/tommy-flowers.jpeg">
+<div align="center">
+    <img src="pix/flowers_with_github.png" width="400"/>
+</div>
 
-[Tommy Flowers, MBE](https://en.wikipedia.org/wiki/Tommy_Flowers) 1905-1998
+# Flowers
+Flowers is a pure-fp Scala library offering access to WW2-era cipher machines. It is named after [Tommy Flowers, MBE](https://en.wikipedia.org/wiki/Tommy_Flowers).
 
-**Pure-fp Scala library** for emulating WW2-era cipher machines.
-
-## 「Machines」
+## Machines
 `flowers` currently offers access to these machines:
 
 | Machine         | Picture                                                | Cipher Type           | Users                                |
 |-----------------|--------------------------------------------------------|-----------------------|--------------------------------------|
-| Enigma M3/M4    | <img src="data/enigma.jpeg" alt="Enigma" width="100"/> | Substitution          | German (Nazi) Military, all branches |
-| Lorenz Sz-40/42 | <img src="data/lorenz.jpg" alt="Lorenz" width="100"/>  | Rotor-stream (Vernam) | German (Nazi) High Command OKH/W     |
+| Enigma M3/M4    | <img src="pix/enigma.jpeg" alt="Enigma" width="100"/> | Substitution          | German (Nazi) Military, all branches |
+| Lorenz Sz-40/42 | <img src="pix/lorenz.jpg" alt="Lorenz" width="100"/>  | Rotor-stream (Vernam) | German (Nazi) High Command OKH/W     |
 
-## 「Usage」
+## Usage
 Add the following to your `build.sbt`:
 ```scala
 libraryDependencies ++= Seq(
@@ -68,7 +68,7 @@ JKSZRORSC_DCUWCJTUYGTAGGOPY,,:1/3 !8(&'5!75!().
 - Decryption is done as follows: Z ⊕ 𝜓 ⊕ 𝝌 = P
 - 𝝌<sub>{1...5}</sub> and 𝜇<sub>1</sub> rotate after each input. 𝜇<sub>2</sub> rotates ⟺ 𝜇<sub>1</sub> = 1, and 𝜓<sub>{1...5}</sub> rotate ⟺ 𝜇<sub>1</sub> ⊕ 𝜇<sub>2</sub> = 1
 
-<img src="data/lorenz.svg">
+<img src="pix/lorenz.svg">
   
 ### Why "de-𝝌" attacks?
 
