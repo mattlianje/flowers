@@ -4,8 +4,6 @@
 </div>
 
 # Flowers
-*Performant, Pure-FP cipher machines*
-
 Flowers is a pure-fp Scala library offering access to WW2-era cipher machines. It is named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers).
 
 ## Features
