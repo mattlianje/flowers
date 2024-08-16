@@ -4,24 +4,25 @@
 </div>
 
 # Flowers
-Flowers is a pure-fp Scala library offering access to WW2-era cipher machines. It is named after [Tommy Flowers, MBE](https://en.wikipedia.org/wiki/Tommy_Flowers).
+*Performant, Pure-FP cipher machines*
 
-## Machines
+Flowers is a pure-fp Scala library offering access to WW2-era cipher machines. It is named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers).
+
+## Features
 `flowers` currently offers access to these machines:
 
 | Machine         | Picture                                                | Cipher Type           | Users                                |
 |-----------------|--------------------------------------------------------|-----------------------|--------------------------------------|
-| Enigma M3/M4    | <img src="pix/enigma.jpeg" alt="Enigma" width="100"/> | Substitution          | German (Nazi) Military, all branches |
-| Lorenz Sz-40/42 | <img src="pix/lorenz.jpg" alt="Lorenz" width="100"/>  | Rotor-stream (Vernam) | German (Nazi) High Command OKH/W     |
+| Enigma M3/M4    | <img src="pix/enigma.png" alt="Enigma" width="100"/> | Substitution          | German (Nazi) Military, all branches |
+| Lorenz Sz-40/42 | <img src="pix/lorenz.png" alt="Lorenz" width="100"/>  | Rotor-stream (Vernam) | German (Nazi) High Command OKH/W     |
 
-## Usage
-Add the following to your `build.sbt`:
+## Getting Started
+`flowers` is available as a binary on the Maven Central repo:
 ```scala
-libraryDependencies ++= Seq(
   "io.github.mattlianje" %% "flowers" % "0.1.0-SNAPSHOT"
-)
 ```
-Example use:
+
+## Examples
 
 ```scala
 import flowers.machines.lorenz._
