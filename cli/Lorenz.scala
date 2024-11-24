@@ -114,17 +114,14 @@ object Lorenz {
   def fromConfig(jsonConfig: String): Try[Lorenz] = {
     decode[LorenzConfig](jsonConfig).toTry.flatMap { config =>
       Try {
-        // Validate wheels
         require(config.chi.length == 5, "Must have exactly 5 Chi wheels")
         require(config.psi.length == 5, "Must have exactly 5 Psi wheels")
 
-        // Create wheels
         val mu1 = Wheel(config.mu1.pins, config.mu1.position)
         val mu2 = Wheel(config.mu2.pins, config.mu2.position)
         val chi = config.chi.map(w => Wheel(w.pins, w.position))
         val psi = config.psi.map(w => Wheel(w.pins, w.position))
 
-        // Parse shift mode
         val shiftMode = config.shiftMode match {
           case "LetterShift" => LetterShift
           case "FigureShift" => FigureShift
