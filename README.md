@@ -3,16 +3,16 @@
     <img src="pix/flowers_with_github.png" width="400"/>
 </div>
 
-# Flowers
-**A functional Scala library offering access to WW2-era cipher machines. Named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers).**
+# Flowers *(beta)*
+**A Scala library offering access to WW2-era cipher machines. Named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers).**
 
 ## Features
 `flowers` currently offers access to these machines:
 
-| Machine         | Picture                                                | Cipher Type           | Users                                |
-|-----------------|--------------------------------------------------------|-----------------------|--------------------------------------|
-| Enigma M3/M4    | <img src="pix/enigma.png" alt="Enigma" width="100"/> | Substitution          | German (Nazi) Military, all branches |
-| Lorenz Sz-40/42 | <img src="pix/lorenz.png" alt="Lorenz" width="100"/>  | Rotor-stream (Vernam) | German (Nazi) High Command OKH/W     |
+| Machine         | Picture                                                | Cipher Type           | Users                          |
+|-----------------|--------------------------------------------------------|-----------------------|--------------------------------|
+| Enigma M3/M4    | <img src="pix/enigma.png" alt="Enigma" width="90"/>   | Substitution           | 🇩🇪/Nazi Military, all branches |
+| Lorenz Sz-40/42 | <img src="pix/lorenz.png" alt="Lorenz" width="90"/>   | Rotor-stream (Vernam)  | 🇩🇪/Nazi High Command OKH/W     |
 
 ## Getting Started
 `flowers` is available as a binary on the Maven Central repo:
@@ -48,7 +48,6 @@ result match {
 ```
 
 **Output:**
-
 ```
 TU7('70.85.2$(7 751*"!"*)4-65
 2)1')72*!. !!-/!_ 67??8"4*744784:044 ??!*:-(,(8"-803$.':)&GQAY! 7(9;;7-7!.-/9!3594432'(;5?/15 " $A ; "")8$"'75:*):!80
