@@ -4,7 +4,7 @@
 </div>
 
 # Flowers
-Flowers is a pure-fp Scala library offering access to WW2-era cipher machines. It is named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers).
+**A functional Scala library offering access to WW2-era cipher machines. Named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers).**
 
 ## Features
 `flowers` currently offers access to these machines:
