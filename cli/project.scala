@@ -1,0 +1,7 @@
+//> using scala "3.3.1"
+//> using dep "org.typelevel::cats-core:2.12.0"
+//> using dep "io.circe::circe-core:0.14.10"
+//> using dep "io.circe::circe-generic:0.14.10"
+//> using dep "io.circe::circe-parser:0.14.10"
+//> using dep "org.scalatest::scalatest:3.2.19"
+//> using resourceDir "resources"
