@@ -5,3 +5,13 @@
 //> using dep "io.circe::circe-parser:0.14.10"
 //> using dep "org.scalatest::scalatest:3.2.19"
 //> using resourceDir "resources"
+
+//> using publish.organization "io.github.mattlianje"
+//> using publish.name "flowers"
+//> using publish.version "0.1.0-SNAPSHOT"
+//> using publish.url "https://github.com/mattlianje/flowers"
+//> using publish.license "GPL-3.0"
+//> using publish.developer "mattlianje|Matthieu Court|https://github.com/mattlianje"
+//> using publish.description "Cipher Machines for your Scala apps"
+//> using publish.scm "https://github.com/mattlianje/flowers|scm:git:git@github.com:mattlianje/flowers.git|scm:git:ssh://git@github.com:mattlianje/flowers.git"
+//> using publish.repository "central-s01"
