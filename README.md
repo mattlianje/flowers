@@ -5,6 +5,7 @@
 
 # Flowers _(𝛽)_
 **Simple Ciphers**
+
 A Scala library for infinite stream capable CLI ciphers. Named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers)
 
 ## Features
