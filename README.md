@@ -4,7 +4,8 @@
 </div>
 
 # Flowers _(𝛽)_
-**A Scala library offering access to WW2-era cipher machines. Named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers).**
+**Simple Ciphers**
+A Scala library for infinite stream capable CLI ciphers. Named after [Tommy Flowers](https://en.wikipedia.org/wiki/Tommy_Flowers)
 
 ## Features
 `flowers` currently offers access to these machines:
